@@ -8,7 +8,7 @@ class Account
   end
 
   def debit(amount)
-     if @balance > amount
+     if @balance >= amount
       @balance -= amount
     end
   end
@@ -41,9 +41,24 @@ get '/' do
     <html>
     <body>
     <form action="/withdraw" method="post">
-      <label for="amount">Amount</label>
-      <input type="text" id="amount" name="amount">
-      <button type="submit">Withdraw</button>
+      <input type="hidden" id="amount" name="amount" value="20">
+      <button type="submit">Withdraw $20</button>
+    </form>
+        <form action="/withdraw" method="post">
+      <input type="hidden" id="amount" name="amount" value="40">
+      <button type="submit">Withdraw $40</button>
+    </form>
+        <form action="/withdraw" method="post">
+      <input type="hidden" id="amount" name="amount" value="60">
+      <button type="submit">Withdraw $60</button>
+    </form>
+        <form action="/withdraw" method="post">
+      <input type="hidden" id="amount" name="amount" value="80">
+      <button type="submit">Withdraw $80</button>
+    </form>
+    <form action="/withdraw" method="post">
+      <input type="hidden" id="amount" name="amount" value="100">
+      <button type="submit">Withdraw $100</button>
     </form>
     </body>
     </html>
