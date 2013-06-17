@@ -20,16 +20,14 @@ class Teller
   end
 
   def withdraw_from(account, amount)
-    if account.debit(amount)
-      @cash_slot.dispense(amount)
-    end
+    account.debit(amount)
+    @cash_slot.dispense(amount)
   end
 end
 
 class CashSlot
   def contents
     @contents or raise("I'm Empty!")
-    @contents = 0
   end
 
   def dispense(amount)
