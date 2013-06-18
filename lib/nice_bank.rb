@@ -62,15 +62,15 @@ get '/' do
       <input type="hidden" id="amount" name="amount" value="20">
       <button type="submit">Withdraw $20</button>
     </form>
-        <form action="/withdraw" method="post">
+    <form action="/withdraw" method="post">
       <input type="hidden" id="amount" name="amount" value="40">
       <button type="submit">Withdraw $40</button>
     </form>
-        <form action="/withdraw" method="post">
+    <form action="/withdraw" method="post">
       <input type="hidden" id="amount" name="amount" value="60">
       <button type="submit">Withdraw $60</button>
     </form>
-        <form action="/withdraw" method="post">
+    <form action="/withdraw" method="post">
       <input type="hidden" id="amount" name="amount" value="80">
       <button type="submit">Withdraw $80</button>
     </form>
@@ -78,7 +78,7 @@ get '/' do
       <input type="hidden" id="amount" name="amount" value="100">
       <button type="submit">Withdraw $100</button>
     </form>
-    <form action="/check_balance" method="post">
+    <form action="/balance" method="get">
       <button type="submit">Check Balance</button>
     </form>
     </body>
@@ -95,11 +95,9 @@ end
 post '/withdraw' do
   teller = Teller.new(settings.cash_slot, settings.screen)
   teller.withdraw_from(settings.account, params[:amount].to_i)
-  settings.screen.contents
 end
 
-post '/check_balance' do
+get '/balance' do
   teller = Teller.new(settings.cash_slot, settings.screen)
   teller.check_balance(settings.account)
-  settings.screen.contents
 end
