@@ -4,4 +4,5 @@
 
 After do |scenario|
   Sinatra::Application.cash_slot = CashSlot.new
+  Sinatra::Application.screen = Screen.new
 end

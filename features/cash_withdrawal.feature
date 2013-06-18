@@ -18,4 +18,4 @@ Feature: Cash withdrawal
     Given my account has been credited with $50
     When I withdraw $100
     Then nothing should be dispensed
-    And the balance of my account should be $50
+    And I should be told that I have insufficient funds in my account
